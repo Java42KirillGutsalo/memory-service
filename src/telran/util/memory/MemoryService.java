@@ -16,12 +16,17 @@ public static int getMaxAvailableMemory() {
 		try {
 			ar = new byte[middle];
 			maxAvailableMemory = middle;
+			// V.R. The following has to be here
+			// left = middle + 1;
 			left = middle++;
 			ar = null;
 		} catch (OutOfMemoryError e) {
-					right = middle--;
-					}
+			// V.R. The following has to be here
+			// right = middle - 1;
+			// It isn't the same
+			right = middle--;
 		}
+	}
 	return maxAvailableMemory;
 }
 }
